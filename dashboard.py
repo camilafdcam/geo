@@ -68,7 +68,7 @@ if menu == 'Home':
         df_filtrado = df_geral[
             (df_geral['STATUS'].isin(['ABERTA', 'EM ANDAMENTO', 'AGUARDANDO'])) &  # Mantém apenas ABERTA e EM ANDAMENTO e AGUARDANDO
             (df_geral['LOCALIZAÇÃO'].isin(['PINTURA', 'CALDEIRARIA', 'MOBILIZAÇÃO', 'OFICINA', 'TORNEARIA'])) &
-            (df_geral['TIPO DE MANUTENÇÃO'].isin(['CORRETIVA', 'PREVENTIVA', 'FABRICAÇÃO', 'MELHORIA', 'PINTURA', 'Manutenção Programada']))  # Mantém apenas CORRETIVA e PREVENTIVA
+            (df_geral['TIPO DE MANUTENÇÃO'].isin(['CORRETIVA', 'PREVENTIVA', 'FABRICAÇÃO', 'MELHORIA', 'PINTURA', 'ADEQUAÇÃO DE SEGURANÇA', 'CORRETIVA PLANEJADA']))  # Mantém apenas CORRETIVA e PREVENTIVA
         ]
 
         return df_filtrado
