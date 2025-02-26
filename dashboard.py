@@ -185,7 +185,7 @@ if menu == 'Home':
     display_kanban(col5, "TORNEARIA", kanban_data["TORNEARIA"])
     display_kanban(col6, "AGUARDANDO", kanban_data["AGUARDANDO"])
     
-if menu == 'INDICADORES':
+#if menu == 'INDICADORES':
     
     
 #    st.markdown(
@@ -396,18 +396,3 @@ if menu == 'INDICADORES':
         #nrows=4400 # delimitação de linhas
         #)
         
-        #df_req
-
-# Verifica se a planta selecionada é "C"
-#if menu == 'BACKLOG':
-        
-    # Leitura do arquivo Excel
-#    df_log = pd.read_excel(
-#        io='data.xlsx',  # endereço do arquivo
-#        index_col=0,  # referência inicial para contagem de coluna 
-#        dtype=str,  # tipo de leitura de dados str
-#       engine='openpyxl',  # biblioteca para leitura excel
-#        sheet_name='DISPONIBILIDADE',  # aba a ser lida
-#        usecols='A:D',  # delimitação de colunas
-#        nrows=4400  # delimitação de linhas
-#    )
