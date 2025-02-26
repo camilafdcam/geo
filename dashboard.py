@@ -188,14 +188,14 @@ if menu == 'Home':
 if menu == 'INDICADORES':
     
     
-    st.markdown(
-        """
-        <div style="text-align: center;">
-            <h2>CONTROLE INTERNO</h2>
-        </div>
-        """,
-        unsafe_allow_html=True
-        )
+#    st.markdown(
+#        """
+#        <div style="text-align: center;">
+#            <h2>CONTROLE INTERNO</h2>
+#        </div>
+#        """,
+#        unsafe_allow_html=True
+#        )
          #Configurações da página
 
     # Retângulos superiores para indicadores
