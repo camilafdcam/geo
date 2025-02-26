@@ -195,137 +195,137 @@ if menu == 'INDICADORES':
         </div>
         """,
         unsafe_allow_html=True
-    )
-        # Configurações da página
+        )
+         #Configurações da página
 
     # Retângulos superiores para indicadores
-    html_code = """
-    <style>
-    /* Container principal para os indicadores */
-    .indicadores-container {
-        display: flex;
-        justify-content: space-around; /* Espaçamento uniforme */
-        align-items: center;
-        flex-wrap: wrap; /* Permite que os elementos quebrem linha */
-        gap: 5px; /* Espaçamento entre os retângulos */
-        padding: 20px;
-        border-radius: 10px;
-    }
+    #html_code = """
+    #<style>
+    #/* Container principal para os indicadores */
+    #.indicadores-container {
+        #display: flex;
+        #justify-content: space-around; /* Espaçamento uniforme */
+        #align-items: center;
+        #flex-wrap: wrap; /* Permite que os elementos quebrem linha */
+        #gap: 5px; /* Espaçamento entre os retângulos */
+        #padding: 20px;
+        #border-radius: 10px;
+#       }
 
-    /* Estilo para cada retângulo */
-    .indicador-box {
-        background: linear-gradient(135deg, #686767, #686767); /* Gradiente de cor */
-        color: white; /* Cor do texto */
-        text-align: center;
-        padding: 20px;
-        width: 160px; /* Largura fixa */
-        height: 90px; /* Altura fixa */
-        border-radius: 3px; /* Bordas arredondadas */
-        box-shadow: 0 4px 8px rgb(0, 0, 0); /* Sombra */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-family: Arial, sans-serif;
-        font-size: 18px;
-        font-weight: bold;
-        transition: transform 0.3s ease-in-out; /* Animação ao passar o mouse */
-    }
+    #/* Estilo para cada retângulo */
+    #.indicador-box {
+        #background: linear-gradient(135deg, #686767, #686767); /* Gradiente de cor */
+        #color: white; /* Cor do texto */
+        #text-align: center;
+        #padding: 20px;
+        #width: 160px; /* Largura fixa */
+        #height: 90px; /* Altura fixa */
+        #border-radius: 3px; /* Bordas arredondadas */
+        #box-shadow: 0 4px 8px rgb(0, 0, 0); /* Sombra */
+        #display: flex;
+        #flex-direction: column;
+        #justify-content: center;
+        #align-items: center;
+        #font-family: Arial, sans-serif;
+        #font-size: 18px;
+        #font-weight: bold;
+        #transition: transform 0.3s ease-in-out; /* Animação ao passar o mouse */
+    #}
 
-    /* Efeito hover nos retângulos */
-    .indicador-box:hover {
-        transform: scale(1.05); /* Leve aumento no tamanho */
-        cursor: pointer; /* Muda o cursor */
-    }
-    </style>
+    #/* Efeito hover nos retângulos */
+    #.indicador-box:hover {
+        #transform: scale(1.05); /* Leve aumento no tamanho */
+        #cursor: pointer; /* Muda o cursor */
+    #}
+    #</style>
 
-    <!-- Estrutura dos Retângulos -->
-    <div class="indicadores-container">
-        <div class="indicador-box">
-            Finalizada<br>
-            <span style="font-size: 20px;">15</span>
-        </div>
-        <div class="indicador-box">
-            Em Andamento<br>
-            <span style="font-size: 20px;">7</span>
-        </div>
-        <div class="indicador-box">
-            Aberta<br>
-            <span style="font-size: 20px;">5</span>
-        </div>
-        <div class="indicador-box">
-            Cancelada<br>
-            <span style="font-size: 20px;">30%</span>
-        </div> 
-        <div class="indicador-box">
-            Indicador 4<br>
-            <span style="font-size: 20px;">30%</span>
-        </div>
-        <div class="indicador-box">
-            Indicador 4<br>
-            <span style="font-size: 20px;">30%</span>
-        </div>
+    #<!-- Estrutura dos Retângulos -->
+    #<div class="indicadores-container">
+        #<div class="indicador-box">
+            #Finalizada<br>
+            #<span style="font-size: 20px;">15</span>
+        #</div>
+        #<div class="indicador-box">
+            #Em Andamento<br>
+            #<span style="font-size: 20px;">7</span>
+        #</div>
+        #<div class="indicador-box">
+            #Aberta<br>
+            #<span style="font-size: 20px;">5</span>
+        #</div>
+        #<div class="indicador-box">
+            #Cancelada<br>
+            #<span style="font-size: 20px;">30%</span>
+        #</div> 
+        #<div class="indicador-box">
+            #Indicador 4<br>
+            #<span style="font-size: 20px;">30%</span>
+        #</div>
+        #<div class="indicador-box">
+            #Indicador 4<br>
+            #<span style="font-size: 20px;">30%</span>
+        #</div>
 
-    </div>
-    """
+    #</div>
+#"""
 
     # Inserir HTML no Streamlit
-    st.markdown(html_code, unsafe_allow_html=True)
+    #st.markdown(html_code, unsafe_allow_html=True)
 
    
 
-    import pandas as pd
-    import plotly.express as px
-    import streamlit as st
+    #import pandas as pd
+    #import plotly.express as px
+    #import streamlit as st
 
     # Leitura do arquivo Excel
-    df_geral = pd.read_excel(
-        io='data.xlsx',  # endereço do arquivo
-        index_col=2,  # referência inicial para contagem de coluna
-        dtype=str,  # tipo de leitura de dados str
-        engine='openpyxl',  # biblioteca para leitura Excel
-        sheet_name='Planilha1',
-        usecols='A:W',  # delimitação de colunas
-        nrows=4400  # delimitação de linhas
-    )
+    #df_geral = pd.read_excel(
+        #io='data.xlsx',  # endereço do arquivo
+        #index_col=2,  # referência inicial para contagem de coluna
+        #dtype=str,  # tipo de leitura de dados str
+        #engine='openpyxl',  # biblioteca para leitura Excel
+        #sheet_name='Planilha1',
+        #usecols='A:W',  # delimitação de colunas
+        #nrows=4400  # delimitação de linhas
+    #)
 
     # Filtrando as colunas que precisamos
-    df_filtered = df_geral[['EQUIPAMENTO', 'STATUS']].dropna()
+    #df_filtered = df_geral[['EQUIPAMENTO', 'STATUS']].dropna()
 
     # Criando o multiselect para selecionar os equipamentos
-    equipamentos_unicos = df_filtered['EQUIPAMENTO'].unique()
-    equipamentos_selecionados = st.multiselect(
-        'Selecione os equipamentos:', 
-        options=equipamentos_unicos, 
-        default=equipamentos_unicos.tolist()  # Definir todos como padrão
-    )
+    #equipamentos_unicos = df_filtered['EQUIPAMENTO'].unique()
+    #equipamentos_selecionados = st.multiselect(
+        #'Selecione os equipamentos:', 
+        #options=equipamentos_unicos, 
+        #default=equipamentos_unicos.tolist()  # Definir todos como padrão
+    #)
 
     # Filtrando os dados com base nos equipamentos selecionados
-    df_filtrado_equipamentos = df_filtered[df_filtered['EQUIPAMENTO'].isin(equipamentos_selecionados)]
+    #df_filtrado_equipamentos = df_filtered[df_filtered['EQUIPAMENTO'].isin(equipamentos_selecionados)]
 
     # Contagem dos status para os equipamentos selecionados
-    contagem_status = df_filtrado_equipamentos.groupby('STATUS').size().reset_index(name='Count')
+    #contagem_status = df_filtrado_equipamentos.groupby('STATUS').size().reset_index(name='Count')
 
     # Gráfico de barras usando Plotly
-    fig_bar = px.bar(contagem_status, 
-                    x='STATUS', 
-                    y='Count', 
-                    title=f'Distribuição de Status para Equipamentos Selecionados', 
-                    labels={'STATUS': 'Tipo de Status', 'Count': 'Quantidade'},
-                    color='STATUS', 
-                    color_discrete_sequence=['#B11515', '#4473C5', '#9DC3E7', 'grey']
-                    )
+    #fig_bar = px.bar(contagem_status, 
+                    #x='STATUS', 
+                    #y='Count', 
+                    #title=f'Distribuição de Status para Equipamentos Selecionados', 
+                    #labels={'STATUS': 'Tipo de Status', 'Count': 'Quantidade'},
+                    #color='STATUS', 
+                    #color_discrete_sequence=['#B11515', '#4473C5', '#9DC3E7', 'grey'])
+                    
 
     # Adicionar rótulos diretamente no topo das barras
-    fig_bar.update_traces(
-        text=contagem_status['Count'].astype(str),  # Passar a contagem diretamente nos rótulos
-        textposition='outside',  # Coloca o texto fora da barra
-        texttemplate='%{text}',   # Exibe o valor de contagem no rótulo
-        showlegend=True
+ #   fig_bar.update_traces(
+ #       text=contagem_status['Count'].astype(str),  # Passar a contagem diretamente nos rótulos
+ #       textposition='outside',  # Coloca o texto fora da barra
+ #       texttemplate='%{text}',   # Exibe o valor de contagem no rótulo
+ #       showlegend=True
     )
 
     # Exibir o gráfico no Streamlit
-    st.plotly_chart(fig_bar)
+ #   st.plotly_chart(fig_bar)
 
     
     # Gráfico de pizza
@@ -336,53 +336,53 @@ if menu == 'INDICADORES':
     
     
    # Ler dados do Excel
-    df_geral = pd.read_excel(
-        io='data.xlsx',  # endereço do arquivo
-        index_col=2,  # Referência inicial para contagem de coluna
-        dtype=str,  # Tipo de leitura de dados como string
-        engine='openpyxl',  # Biblioteca para leitura Excel
-        sheet_name='Planilha1',
-        usecols='A:W',  # Delimitação de colunas
-        nrows=4400  # Delimitação de linhas
+ #   df_geral = pd.read_excel(
+ 3       io='data.xlsx',  # endereço do arquivo
+ #       index_col=2,  # Referência inicial para contagem de coluna
+ #       dtype=str,  # Tipo de leitura de dados como string
+ #       engine='openpyxl',  # Biblioteca para leitura Excel
+ #       sheet_name='Planilha1',
+ #       usecols='A:W',  # Delimitação de colunas
+ #       nrows=4400  # Delimitação de linhas
     )
 
-    # Filtrar dados e contar tipos de manutenção
-    df_filtered = df_geral[['TIPO DE MANUTENÇÃO']].dropna()  # Remove as linhas com valores ausentes
-    count_adequacao = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Adequação de Segurança'].shape[0]
-    count_corretiva = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Corretiva'].shape[0]
-    count_fabricacao = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Fabricação'].shape[0]
-    count_melhoria = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Melhoria'].shape[0]
-    count_pintura = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Pintura'].shape[0]
-    count_preventiva = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Preventiva'].shape[0]
+ #   # Filtrar dados e contar tipos de manutenção
+ #   df_filtered = df_geral[['TIPO DE MANUTENÇÃO']].dropna()  # Remove as linhas com valores ausentes
+ #  count_adequacao = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Adequação de Segurança'].shape[0]
+ #   count_corretiva = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Corretiva'].shape[0]
+ #  count_fabricacao = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Fabricação'].shape[0]
+ #   count_melhoria = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Melhoria'].shape[0]
+ #   count_pintura = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Pintura'].shape[0]
+ #   count_preventiva = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Preventiva'].shape[0]
 
-    # Criar um DataFrame para os gráficos
-    status_data = {
-        'TIPO DE MANUTENÇÃO': ['Adequação de Segurança', 'Corretiva', 'Fabricação', 'Melhoria', 'Pintura', 'Preventiva'],
-        'Count': [count_adequacao, count_corretiva, count_fabricacao, count_melhoria, count_pintura, count_preventiva]
+ #   # Criar um DataFrame para os gráficos
+ #   status_data = {
+ #       'TIPO DE MANUTENÇÃO': ['Adequação de Segurança', 'Corretiva', 'Fabricação', 'Melhoria', 'Pintura', 'Preventiva'],
+ #       'Count': [count_adequacao, count_corretiva, count_fabricacao, count_melhoria, count_pintura, count_preventiva]
     }
-    df_status = pd.DataFrame(status_data)
+ #   df_status = pd.DataFrame(status_data)
 
     # Gráfico de barras
-    fig_bar = px.bar(
-        df_status,
-        x='TIPO DE MANUTENÇÃO',
-        y='Count',
-        title='Distribuição de Tipos de Manutenção',
-        labels={'TIPO DE MANUTENÇÃO': 'Tipo de Manutenção', 'Count': 'Quantidade'},
-        color='TIPO DE MANUTENÇÃO',
-        color_discrete_sequence= ['#B11515','#4473C5','#9DC3E7','grey', '#E1E6E3','#800000'] #cores personalizadas 
-    )
+ #   fig_bar = px.bar(
+ #       df_status,
+ #       x='TIPO DE MANUTENÇÃO',
+ #       y='Count',
+ #       title='Distribuição de Tipos de Manutenção',
+ #       labels={'TIPO DE MANUTENÇÃO': 'Tipo de Manutenção', 'Count': 'Quantidade'},
+ #       color='TIPO DE MANUTENÇÃO',
+ #       color_discrete_sequence= ['#B11515','#4473C5','#9DC3E7','grey', '#E1E6E3','#800000'] #cores personalizadas 
+ #   )
 
     # Adicionar rótulos no topo das barras
-    fig_bar.update_traces(
-        text=df_status['Count'],  # Rótulo correto para cada barra
-        textposition='outside',  # Coloca o texto fora da barra
-        texttemplate='%{text}',  # Exibe o valor de contagem no rótulo
-        showlegend=False  # Remove legenda desnecessária
-    )
+  #  fig_bar.update_traces(
+  #      text=df_status['Count'],  # Rótulo correto para cada barra
+  #      textposition='outside',  # Coloca o texto fora da barra
+  #      texttemplate='%{text}',  # Exibe o valor de contagem no rótulo
+  #      showlegend=False  # Remove legenda desnecessária
+  #  )
 
     # Exibir o gráfico no Streamlit
-    st.plotly_chart(fig_bar)
+    #st.plotly_chart(fig_bar)
 
     #if menu == 'Requisições':
         
@@ -413,4 +413,3 @@ if menu == 'DISPONIBILIDADE':
     )
 
    
-
