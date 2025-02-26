@@ -322,7 +322,7 @@ if menu == 'INDICADORES':
  #       textposition='outside',  # Coloca o texto fora da barra
  #       texttemplate='%{text}',   # Exibe o valor de contagem no rótulo
  #       showlegend=True
-    )
+ #   )
 
     # Exibir o gráfico no Streamlit
  #   st.plotly_chart(fig_bar)
@@ -337,14 +337,14 @@ if menu == 'INDICADORES':
     
    # Ler dados do Excel
  #   df_geral = pd.read_excel(
- 3       io='data.xlsx',  # endereço do arquivo
+ #      io='data.xlsx',  # endereço do arquivo
  #       index_col=2,  # Referência inicial para contagem de coluna
  #       dtype=str,  # Tipo de leitura de dados como string
  #       engine='openpyxl',  # Biblioteca para leitura Excel
  #       sheet_name='Planilha1',
  #       usecols='A:W',  # Delimitação de colunas
  #       nrows=4400  # Delimitação de linhas
-    )
+#    )
 
  #   # Filtrar dados e contar tipos de manutenção
  #   df_filtered = df_geral[['TIPO DE MANUTENÇÃO']].dropna()  # Remove as linhas com valores ausentes
@@ -359,7 +359,7 @@ if menu == 'INDICADORES':
  #   status_data = {
  #       'TIPO DE MANUTENÇÃO': ['Adequação de Segurança', 'Corretiva', 'Fabricação', 'Melhoria', 'Pintura', 'Preventiva'],
  #       'Count': [count_adequacao, count_corretiva, count_fabricacao, count_melhoria, count_pintura, count_preventiva]
-    }
+ #   }
  #   df_status = pd.DataFrame(status_data)
 
     # Gráfico de barras
@@ -399,17 +399,15 @@ if menu == 'INDICADORES':
         #df_req
 
 # Verifica se a planta selecionada é "C"
-if menu == 'DISPONIBILIDADE':
+#if menu == 'BACKLOG':
         
     # Leitura do arquivo Excel
-    df_log = pd.read_excel(
-        io='data.xlsx',  # endereço do arquivo
-        index_col=0,  # referência inicial para contagem de coluna 
-        dtype=str,  # tipo de leitura de dados str
-        engine='openpyxl',  # biblioteca para leitura excel
-        sheet_name='DISPONIBILIDADE',  # aba a ser lida
-        usecols='A:D',  # delimitação de colunas
-        nrows=4400  # delimitação de linhas
-    )
-
-   
+#    df_log = pd.read_excel(
+#        io='data.xlsx',  # endereço do arquivo
+#        index_col=0,  # referência inicial para contagem de coluna 
+#        dtype=str,  # tipo de leitura de dados str
+#       engine='openpyxl',  # biblioteca para leitura excel
+#        sheet_name='DISPONIBILIDADE',  # aba a ser lida
+#        usecols='A:D',  # delimitação de colunas
+#        nrows=4400  # delimitação de linhas
+#    )
