@@ -142,7 +142,7 @@ if menu == 'Home':
             "PINTURA": "#333399",  # Verde Lima
             "CALDEIRARIA": "#333399",  # Ouro
             "TORNEARIA": "#333399",  # Azul Violeta
-            "AGUARDANDO": "#333399"  # Laranja Vermelho
+            "AGUARDANDO": "#FF3300"  # Tomate
         }
 
         # Exibindo apenas o retângulo de marcador de texto com a cor
