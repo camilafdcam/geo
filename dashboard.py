@@ -171,6 +171,7 @@ if menu == 'Home':
                             <p><strong>🔧 Equipamento:</strong> {row.get('EQUIPAMENTO', 'Sem Equipamento')}</p>
                             <p><strong>📝 Observação:</strong> {row.get('OBSERVAÇÃO', 'Sem Observação')}</p>
                             <p><strong>📅 Saída Prevista:</strong> {row.get('SAÍDA PREVISTA', 'Sem Data')}</p>
+                            <p><strong>🛒 Solicitação de Compra:</strong> {row.get('S.C COMPRA', 'Sem Compra')}</p>
                             <p><strong>⏳ Aguardando:</strong> {row.get('FAZENDO', 'Nenhuma atividade registrada')}</p>
                         </div>
                         """,
