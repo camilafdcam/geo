@@ -66,7 +66,7 @@ if menu == 'Home':
 
         # Aplicando os filtros
         df_filtrado = df_geral[
-            #(df_geral['STATUS'].isin(['ABERTA', 'EM ANDAMENTO', 'AGUARDANDO RETIRADA'])) &  # Mantém apenas ABERTA e EM ANDAMENTO e AGUARDANDO
+            (df_geral['STATUS'].isin(['ABERTA', 'EM ANDAMENTO', 'AGUARDANDO RETIRADA'])) &  # Mantém apenas ABERTA e EM ANDAMENTO e AGUARDANDO
             (df_geral['LOCALIZAÇÃO'].isin(['PINTURA', 'CALDEIRARIA', 'MOBILIZAÇÃO', 'OFICINA', 'TORNEARIA'])) &
             (df_geral['TIPO DE MANUTENÇÃO'].isin(['CORRETIVA', 'PREVENTIVA', 'FABRICAÇÃO', 'MELHORIA', 'PINTURA', 'ADEQUAÇÃO DE SEGURANÇA', 'CORRETIVA PLANEJADA']))  # Mantém apenas CORRETIVA e PREVENTIVA
         ]
@@ -85,7 +85,7 @@ if menu == 'Home':
         "TORNEARIA": df_filtrado[df_filtrado["LOCALIZAÇÃO"] == "TORNEARIA"], 
         "ABERTA": df_filtrado[df_filtrado["STATUS"] == "ABERTA"],
         "EM ANDAMENTO": df_filtrado[df_filtrado["STATUS"] == "EM ANDAMENTO"],
-        #"AGUARDANDO RETIRADA": df_filtrado[df_filtrado["STATUS"] == "AGUARDANDO RETIRADA"]
+        "AGUARDANDO RETIRADA": df_filtrado[df_filtrado["STATUS"] == "AGUARDANDO RETIRADA"]
     }
 
     # Cores para os títulos do Kanban
@@ -97,7 +97,7 @@ if menu == 'Home':
         "TORNEARIA": "#000066",   # Azul
         "ABERTA": "#000066",   # Azul
         "EM ANDAMENTO": "#000066",   # Azul
-        #"AGUARDANDO RETIRADA": "#000066"   # Azul
+        "AGUARDANDO RETIRADA": "#000066"   # Azul
     }
 
     import streamlit as st
@@ -142,7 +142,7 @@ if menu == 'Home':
             "PINTURA": "#333399",  # Verde Lima
             "CALDEIRARIA": "#333399",  # Ouro
             "TORNEARIA": "#333399",  # Azul Violeta
-            #"AGUARDANDO RETIRADA": "#FF3300"  # Tomate
+            "AGUARDANDO RETIRADA": "#FF3300"  # Tomate
         }
 
         # Exibindo apenas o retângulo de marcador de texto com a cor
@@ -184,7 +184,7 @@ if menu == 'Home':
     display_kanban(col3, "PINTURA", kanban_data["PINTURA"])
     display_kanban(col4, "CALDEIRARIA", kanban_data["CALDEIRARIA"])
     display_kanban(col5, "TORNEARIA", kanban_data["TORNEARIA"])
-    #display_kanban(col6, "AGUARDANDO RETIRADA", kanban_data["AGUARDANDO RETIRADA"])
+    display_kanban(col6, "AGUARDANDO RETIRADA", kanban_data["AGUARDANDO RETIRADA"])
     
 #if menu == 'INDICADORES':
     
