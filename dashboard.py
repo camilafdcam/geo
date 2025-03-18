@@ -85,7 +85,7 @@ if menu == 'Home':
         "TORNEARIA": df_filtrado[df_filtrado["LOCALIZAÇÃO"] == "TORNEARIA"], 
         "ABERTA": df_filtrado[df_filtrado["STATUS"] == "ABERTA"],
         "EM ANDAMENTO": df_filtrado[df_filtrado["STATUS"] == "EM ANDAMENTO"],
-        #"AGUARDANDO RETIRADA": df_filtrado[df_filtrado["STATUS"] == "AGUARDANDO RETIRADA"]
+        "AGUARDANDO RETIRADA": df_filtrado[df_filtrado["STATUS"] == "AGUARDANDO RETIRADA"]
     }
 
     # Cores para os títulos do Kanban
