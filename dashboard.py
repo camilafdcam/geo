@@ -171,7 +171,6 @@ if menu == 'Home':
                             <p><strong>🔧 Equipamento:</strong> {row.get('EQUIPAMENTO', 'Sem Equipamento')}</p>
                             <p><strong>📝 Observação:</strong> {row.get('OBSERVAÇÃO', 'Sem Observação')}</p>
                             <p><strong>📅 Saída Prevista:</strong> {row.get('SAÍDA PREVISTA', 'Sem Data')}</p>
-                            <p><strong>🛒 Solicitação de Compra:</strong> {row.get('S.C COMPRA', 'Sem Compra')}</p>
                             <p><strong>⏳ Aguardando:</strong> {row.get('FAZENDO', 'Nenhuma atividade registrada')}</p>
                         </div>
                         """,
@@ -186,9 +185,153 @@ if menu == 'Home':
     display_kanban(col5, "TORNEARIA", kanban_data["TORNEARIA"])
     display_kanban(col6, "AGUARDANDO RETIRADA", kanban_data["AGUARDANDO RETIRADA"])
     
-#if menu == 'INDICADORES':
+if menu == 'INDICADORES':
+
     
     
+# Gráfico de rosca
+
+    
+   # Ler dados do Excel
+    df_geral = pd.read_excel(
+       io='data.xlsx',  # endereço do arquivo
+       index_col=2,  # Referência inicial para contagem de coluna
+       dtype=str,  # Tipo de leitura de dados como string
+       engine='openpyxl',  # Biblioteca para leitura Excel
+       sheet_name='Planilha1',
+       usecols='A:X',  # Delimitação de colunas
+       nrows=4400  # Delimitação de linhas
+    )
+
+    #Filtrar dados e contar tipos de manutenção
+    df_filtered = df_geral[['STATUS']].dropna()  # Remove as linhas com valores ausentesdf
+    #counts = df_filtered['TIPO DE MANUTENÇÃO'].value_counts().reset_index()
+    #counts.columns = ['Tipo de Manutenção', 'Quantidade']
+    count_aberta = df_filtered[df_filtered['STATUS'] == 'ABERTA'].shape[0]
+    count_andamento = df_filtered[df_filtered['STATUS'] == 'EM ANDAMENTO'].shape[0]
+    count_finalizada = df_filtered[df_filtered['STATUS'] == 'FINALIZADA'].shape[0]
+    count_cancelada = df_filtered[df_filtered['STATUS'] == 'CANCELADA'].shape[0]
+    count_retirada = df_filtered[df_filtered['STATUS'] == 'AGUARDANDO RETIRADA'].shape[0]
+
+
+
+    # Criar um DataFrame para os gráficos
+    status_data = {
+        'STATUS': ['ABERTA', 'EM ANDAMENTO', 'FINALIZADA', 'CANCELADA', 'AGUARDADO RETIRADA'],
+        'Count': [count_aberta, count_andamento, count_finalizada, count_cancelada, count_retirada]
+    }
+    df_status = pd.DataFrame(status_data)
+
+    
+
+    
+# Gráfico de Barras 
+         
+         
+    import streamlit as st
+    import pandas as pd
+    import plotly.express as px
+
+    # Função para carregar os dados do Excel
+    @st.cache_data
+    def load_data():
+        df_geral = pd.read_excel(
+        io='data.xlsx',  # Caminho do arquivo
+        index_col=2,  # Referência inicial para contagem de coluna
+        dtype=str,  # Tipo de leitura de dados como string
+        engine='openpyxl',  # Biblioteca para leitura do Excel
+        sheet_name='Planilha1',
+        usecols='A:X',  # Delimitação de colunas
+        nrows=4400  # Delimitação de linhas
+        )
+        return df_geral
+
+    # Carregar os dados
+    df_geral = load_data()
+
+    # Verifique se as colunas 'MÊS' e 'STATUS' existem
+    if 'MÊS' in df_geral.columns and 'STATUS' in df_geral.columns:
+        # Agrupar os dados pela coluna 'MÊS' e contar a quantidade de cada 'STATUS'
+        status_count_by_month = df_geral.groupby(['MÊS', 'STATUS']).size().reset_index(name='COUNT')
+
+        # Criar o gráfico de barras usando Plotly
+        fig = px.bar(
+            status_count_by_month,
+            x='MÊS',  # Eixo X será o MÊS
+            y='COUNT',  # Eixo Y será o COUNT de STATUS
+            color='STATUS',  # Diferenciar as barras pela coluna STATUS
+            title='Contagem de STATUS por MÊS',
+            labels={'MÊS': 'Mês', 'COUNT': 'Quantidade de STATUS', 'STATUS': 'Status'},
+            barmode='stack'  # Exibe as barras empilhadas para cada mês
+        )
+
+        # Exibir o gráfico no Streamlit
+        st.plotly_chart(fig)
+    else:
+        st.write("As colunas 'MÊS' e 'STATUS' não foram encontradas no arquivo.")
+
+
+
+    
+    
+    #count_aberta = df_filtered[df_filtered['STATUS'] == 'ABERTA'].shape[0]
+    #count_andamento = df_filtered[df_filtered['STATUS'] == 'EM ANDAMENTO'].shape[0]
+    #count_finalizada = df_filtered[df_filtered['STATUS'] == 'FINALIZADA'].shape[0]
+    #count_cancelada = df_filtered[df_filtered['STATUS'] == 'CANCELADA'].shape[0]
+    #count_retirada = df_filtered[df_filtered['STATUS'] == 'AGUARDANDO RETIRADA'].shape[0]
+
+
+
+     # Gráfico de rosca (pizza com furo no meio)
+    fig_pie = px.pie(
+        df_status,
+        names='STATUS',
+        values='Count',
+        title='Distribuição dos Tipos de Manutenção',
+        hole=0.4  # Define o tamanho do buraco no meio (0 = pizza cheia, 1 = só borda)
+        )
+
+    # Exibir gráficos no Streamlit
+    st.plotly_chart(fig_pie)
+
+    # Carregar o DataFrame (substitua o caminho do arquivo conforme necessário)
+    
+
+
+
+
+if menu == 'EQUIPAMENTOS':
+    st.title('Visualizador Interativo de Planilha')
+
+# Upload da planilha
+uploaded_file = st.file_uploader("EQUIPAMENTOS", type=["xlsx", "csv"])
+
+if uploaded_file is not None:
+    # Carregar dados
+    if uploaded_file.name.endswith('.csv'):
+        df = pd.read_csv(uploaded_file)
+    else:
+        df = pd.read_excel(uploaded_file)
+    
+    
+# Filtros interativos para colunas específicas
+    st.subheader("Filtros")
+    filter_columns = ['EQUIPAMENTO', 'CLASSIFICAÇÃO', 'MODELO', 'LOCALIZAÇÃO', 'PROJETO']
+    for col in filter_columns:
+        if col in df.columns:
+            options = st.multiselect(f"Filtrar {col}", df[col].unique())
+            if options:
+                df = df[df[col].isin(options)]
+    
+    
+    # Exibir dados filtrados
+    st.subheader('Dados Filtrados:')
+    st.dataframe(df)
+else:
+    st.info('Por favor, faça o upload de um arquivo Excel ou CSV.')
+
+
+
 #    st.markdown(
 #        """
 #        <div style="text-align: center;">
@@ -348,7 +491,7 @@ if menu == 'Home':
 #    )
 
  #   # Filtrar dados e contar tipos de manutenção
- #   df_filtered = df_geral[['TIPO DE MANUTENÇÃO']].dropna()  # Remove as linhas com valores ausentes
+ #   _filtered = df_geral[['TIPO DE MANUTENÇÃO']].dropna()  # Remove as linhas com valores ausentesdf
  #  count_adequacao = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Adequação de Segurança'].shape[0]
  #   count_corretiva = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Corretiva'].shape[0]
  #  count_fabricacao = df_filtered[df_filtered['TIPO DE MANUTENÇÃO'] == 'Fabricação'].shape[0]
