@@ -220,6 +220,7 @@ if menu == 'INDICADORES':
         'STATUS': ['ABERTA', 'EM ANDAMENTO', 'FINALIZADA', 'CANCELADA', 'AGUARDADO RETIRADA'],
         'Count': [count_aberta, count_andamento, count_finalizada, count_cancelada, count_retirada]
     }
+    
     df_status = pd.DataFrame(status_data)
 
     
